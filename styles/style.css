@@ -1,0 +1,24 @@
+html, body {
+    margin: 0;
+}
+
+html{
+    height: 100%;
+}
+
+body{
+    overflow: hidden;
+    height: inherit;
+}
+
+h1{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-transform: uppercase;
+    color:#fff;
+    background-image: linear-gradient(45deg,#e25cdd 0%,#5116b7 35%,#51a796 85%,#a7a351 100%);
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+    position:absolute;
+    margin: 0;
+    top: 1rem;
+}
