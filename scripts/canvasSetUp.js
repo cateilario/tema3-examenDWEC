@@ -21,7 +21,6 @@ export function loop() {
     for (const ball of balls) {
         ball.draw();
         ball.update(); 
-        ball.collisionDetect();
         for (const otherBall of balls) {
             if (ball !== otherBall) {
                 ball.collisionDetect(otherBall);
