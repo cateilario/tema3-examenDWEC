@@ -25,7 +25,7 @@ class Ball {
     draw() {
         ctx.beginPath();
         ctx.fillStyle = this.color;
-        ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI());
+        ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI); //Error2: Math.PI no es una función, es objeto nativo de js
         ctx.fill();
     }
 
@@ -34,7 +34,7 @@ class Ball {
         // En la primera si hay colisión derecha: cambiamos el signo del valor absoluto de la velocidad
         // para que se produzca un choque y un cambio de sentido
         if ((this.x + this.size) >= width) {
-            this.velX = -Math.abs(this.velX);
+            this.velX = -(Math.abs(this.velX));
         } 
         
         if ((this.x - this.size) <= 0) {
@@ -43,7 +43,7 @@ class Ball {
         }
         // Lo mismo del eje x para el eje y
         if ((this.y + this.size) >= height) {
-            this.velY = -Math.abs(this.velY);
+            this.velY = -(Math.abs(this.velY));
         }
 
         if ((this.y - this.size) <= 0) {
