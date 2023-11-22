@@ -91,7 +91,7 @@ while (balls.length < 4) {
 }
 
 function loop() {
-    ctx.fillStyle = 'rgba(0, 0, 0, 0.25)';
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.25)'; //Error3: color de fondo negro transparente
     ctx.fillRect(0, 0, width, height);
 
     for (const ball of balls) {
