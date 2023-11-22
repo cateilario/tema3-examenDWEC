@@ -30,18 +30,30 @@ class Ball {
     }
 
     update() {
-        if ((this.x + this.size) >= width || (this.x - this.size) <= 0) {
-            // Error: habría que pasar velX a valor absoluto y 
-            this.velX = -this.velX;
+        // Error: habría que realizar 4 condiciones
+        // En la primera si hay colisión derecha: cambiamos el signo del valor absoluto de la velocidad
+        // para que se produzca un choque y un cambio de sentido
+        if ((this.x + this.size) >= width) {
+            this.velX = -Math.abs(this.velX);
+        } 
+        
+        if ((this.x - this.size) <= 0) {
+            // Si hay colisión izquierda (x es 0 en el borde izquierdo), cambiamos el signo del valor absoluto
+            this.velX = Math.abs(this.velX);
+        }
+        // Lo mismo del eje x para el eje y
+        if ((this.y + this.size) >= height) {
+            this.velY = -Math.abs(this.velY);
         }
 
-        if ((this.y + this.size) >= height || (this.y - this.size) <= 0) {
-            this.velY = -this.velY;
+        if ((this.y - this.size) <= 0) {
+            this.velY = Math.abs(this.velY);
         }
 
         this.x += this.velX;
         this.y += this.velY;
     }
+
 
     collisionDetect(otherBall) {
         const dx = this.x - otherBall.x;
@@ -53,6 +65,7 @@ class Ball {
         }
     }
 }
+
 
 const balls = [];
 
@@ -76,6 +89,7 @@ function loop() {
     for (const ball of balls) {
         ball.draw();
         ball.update();
+
         for (const otherBall of balls) {
             if (ball !== otherBall) {
                 ball.collisionDetect(otherBall);
