@@ -15,7 +15,7 @@ while (balls.length < 4) {
         random(0 + size, height - size),
         random(-7, 7),
         random(-7, 7),
-        randomRGB(),
+        randomRGB(), // Error: falta dar valor a color 
         size
     );
 

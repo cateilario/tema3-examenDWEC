@@ -7,7 +7,7 @@ export class Ball {
         this.y = y;
         this.velX = velX;
         this.velY = velY;
-        this.color = color;
+        this.color = randomRGB();
         this.size = size;
     }
 
@@ -43,20 +43,13 @@ export class Ball {
         this.y += this.velY;
     }
 
-    collisionDetect() {
-        //Error 4: Habría que crear un bucle for para recorrer el array bolas y detectar las colisiones entre ellas
-        for(const ball of balls){
-            //Comprobar que la bola no es la misma que con la que estamos iterando
-            if(!(this === ball)){
-            const dx = this.x - ball.x;
-            const dy = this.y - ball.y;
-            const distance = Math.sqrt(dx * dx + dy * dy);
+    collisionDetect(otherBall) {
+        const dx = this.x - otherBall.x;
+        const dy = this.y - otherBall.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
 
-            if (distance < this.size + ball.size) {
-            ball.color = this.color = randomRGB();
-            }
-            }
+        if (distance < this.size + otherBall.size) {
+            otherBall.color = this.color = randomRGB();
         }
-        
     }
 }
