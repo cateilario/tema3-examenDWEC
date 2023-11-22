@@ -13,12 +13,12 @@ function randomRGB() {
 }
 
 class Ball {
-    constructor(x, y, velX, velY, size) {
+    constructor(x, y, velX, velY, color, size) { //Error1: falta atributo color en el constructor de la clase
         this.x = x;
         this.y = y;
         this.velX = velX;
         this.velY = velY;
-        this.color = randomRGB();
+        this.color = color;
         this.size = size;
     }
 
@@ -55,14 +55,21 @@ class Ball {
     }
 
 
-    collisionDetect(otherBall) {
-        const dx = this.x - otherBall.x;
-        const dy = this.y - otherBall.y;
-        const distance = Math.sqrt(dx * dx + dy * dy);
+    collisionDetect() {
+        //Error 2: Creamos un bucle for para recorrer el array bolas
+        for(const ball of balls){
+            //Comprobar que la bola no es la misma que con la que estamos iterando
+            if(!this === ball){
+            const dx = this.x - ball.x;
+            const dy = this.y - ball.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
 
-        if (distance < this.size + otherBall.size) {
-            otherBall.color = this.color = randomRGB();
+            if (distance < this.size + ball.size) {
+            ball.color = this.color = randomRGB();
+            }
+            }
         }
+        
     }
 }
 
@@ -76,6 +83,7 @@ while (balls.length < 4) {
         random(0 + size, height - size),
         random(-7, 7),
         random(-7, 7),
+        randomRGB(),
         size
     );
 
@@ -83,13 +91,13 @@ while (balls.length < 4) {
 }
 
 function loop() {
-    ctx.fillStyle = 'rgba(0, 245, 0, 0.25)';
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.25)';
     ctx.fillRect(0, 0, width, height);
 
     for (const ball of balls) {
         ball.draw();
-        ball.update();
-
+        ball.update(); 
+        ball.collisionDetect();
         for (const otherBall of balls) {
             if (ball !== otherBall) {
                 ball.collisionDetect(otherBall);
