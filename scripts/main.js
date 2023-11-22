@@ -3,7 +3,8 @@
  * GitHub: 
  */
 
-import {}
+import { width, height, random, randomRGB, loop } from "./canvasSetUp.js";
+import { Ball } from "./Ball.js";
 
 export const balls = [];
 

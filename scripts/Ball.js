@@ -1,4 +1,4 @@
-import { ctx, width, height, randomRGB } from "./canvas-setup.js";
+import { ctx, width, height, randomRGB } from "./canvasSetUp.js";
 import { balls } from "./main.js";
 
 export class Ball {
