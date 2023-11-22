@@ -1,4 +1,5 @@
-
+import { ctx, width, height, randomRGB } from "./canvas-setup.js";
+import { balls } from "./main.js";
 
 export class Ball {
     constructor(x, y, velX, velY, color, size) { //Error2: falta atributo color en el constructor de la clase

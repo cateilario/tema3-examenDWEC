@@ -1,7 +1,11 @@
+/**
+ * Autor: Caterina Ilario Paz
+ * GitHub: 
+ */
 
+import {}
 
-
-const balls = [];
+export const balls = [];
 
 while (balls.length < 4) {
     const size = random(10, 20);
@@ -16,7 +20,5 @@ while (balls.length < 4) {
 
     balls.push(ball);
 }
-
-
 
 loop();
