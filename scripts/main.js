@@ -1,6 +1,6 @@
 /**
  * Autor: Caterina Ilario Paz
- * GitHub: 
+ * GitHub: https://github.com/cateilario/tema3-examenDWEC.git
  */
 
 import { width, height, random, randomRGB, loop } from "./canvasSetUp.js";
